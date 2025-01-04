@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<section class="hero is-link">
+    <div class="hero-body">
+        <div class="">
+            
+        </div>
+        <div class="section">
+            <h1 class="title">¡Hola!</h1>
+            <h2 class="subtitle">Tengo algunas preguntas para tí.</h2>
+        </div>
+        <div class="section is-size-6">
+            <div class="columns">
+                <div class="column">
+                    <p>
+                        Me llamo Markus y estoy haciendo un trabajo
+                        sobre la imagen que tienen las personas como tú
+                        de la fisioterapia.
+                    </p>
+                    <p>
+                        Para ello me gustaría saber lo que tú piensas
+                        y lo que sabes de la fisioterapia. 
+                    </p>
+                    <p>
+                        A cambio te contaré algunas cosillas sobre este
+                        fascinante trabajo. 
+                    </p>
+                    <p>
+                        ¿Qué me dices, truco o trato?
+                    </p>
+                    <div class="section">
+                        <a href="{% url 'tfgcore:personaldata' %}" class="button is-info">Adelante!</a>
+                    </div>
+                </div>
+                <div class="column is-one-fifth">
+                    <figure class="image is-3by5">
+                        <img src="{% static 'tfgcore/img/profile01.jpg' %}" >
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

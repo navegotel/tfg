@@ -1,0 +1,44 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <title>
+                {% block title %}
+                    {% if title %}
+                        {{title}}
+                    {% else %}
+                        Imagen Fisio
+                    {% endif %}
+                {% endblock %}
+            </title>
+            <link href="{% static 'tfgcore/css/fontawesome/css/all.css' %}" rel="stylesheet">
+            <link href="{% static 'tfgcore/css/bulma/css/bulma.min.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+        {% block footer %}
+        <footer class="footer">
+            <nav class="navbar">
+                <div class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item">
+                            Aviso Legal
+                        </a>
+                        <a class="navbar-item">
+                            Política de Privacidad
+                        </a>
+                        <a class="navbar-item" href="{% url 'tfgcore:about' %}">
+                            Sobre la Encuesta
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            </div>
+        </footer>
+        {% endblock %}
+    </body>
+</html>
