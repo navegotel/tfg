@@ -11,7 +11,8 @@ SECRET_KEY = '6d=rc0q6$zt=(yt#!f6-(3bxm&gkp5p4x#y)g#l*_q)z$o=+eg'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'tfg.markusbarth.net'
+    'tfg.markusbarth.net',
+    'localhost'
 ]
 
 INSTALLED_APPS = [
