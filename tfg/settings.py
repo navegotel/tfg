@@ -84,7 +84,7 @@ USE_I18N = False
 
 USE_TZ = False
 
-STATIC_URL = '/home/markus/tfg/static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
