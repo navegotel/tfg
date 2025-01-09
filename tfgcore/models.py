@@ -1,9 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Participant(models.Model):
-    class Meta:
-        ordering = ['last_name', 'first_name']
-
+    
     GENDER_CHOICES=[
         ('MALE', 'Hombre'),
         ('FEMALE', 'Mujer'),
@@ -15,17 +14,11 @@ class Participant(models.Model):
         ('NA', 'No quiero especificar'),
     ]
 
-    email = models.EmailField("Correo electrónico")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, help_text="Usuario con login")
     creation_date = models.DateTimeField("Creado", help_text="Fecha de creación del registro.", auto_now_add=True)
-    last_name = models.CharField("Apellidos", max_length=50)
-    first_name = models.CharField("Nombre", max_length=50)
     date_of_birth = models.DateField("Fecha de nacimiento")
     gender = models.CharField("Género", max_length=12, choices=GENDER_CHOICES)
     post_code = models.CharField("Código Postal", max_length=5)
-
-
-class ClinicalProfile(models.Model):
-    participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
     smoking = models.BooleanField("Fumador")
     sports = models.IntegerField("Deportista")
     diabetes = models.BooleanField("Diabetes")
@@ -50,8 +43,10 @@ class Answers(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     vas = models.SmallIntegerField("EVA")
     comment = models.TextField("Comentario")
+    yes = models.BooleanField("Sí")
 
 
 class MultipleChoiceAnswers(models.Model):
     option = models.ForeignKey(Option, on_delete=models.CASCADE)
     vas = models.SmallIntegerField("EVA")
+    yes = models.BooleanField("Sí")

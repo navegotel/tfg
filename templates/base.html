@@ -10,12 +10,14 @@
                     {% if title %}
                         {{title}}
                     {% else %}
-                        Imagen Fisio
+                        Encuesta
                     {% endif %}
                 {% endblock %}
             </title>
             <link href="{% static 'tfgcore/css/fontawesome/css/all.css' %}" rel="stylesheet">
             <link href="{% static 'tfgcore/css/bulma/css/bulma.min.css' %}" rel="stylesheet">
+            <link href="{% static 'tfgcore/css/bulma/css/bulma-slider.min.css' %}" rel="stylesheet">
+            <link href="{% static 'tfgcore/css/bulma/css/bulma-checkradio.min.css' %}" rel="stylesheet">
     </head>
     <body>
         {% block body %}
@@ -37,8 +39,14 @@
                     </div>
                 </div>
             </nav>
-            </div>
         </footer>
         {% endblock %}
     </body>
+    {% block js %}
+        <script src="{% static 'tfgcore/js/bulma-slider.min.js' %}"></script>
+        <script>
+            bulmaSlider.attach();
+            bulmaCalendar.attach();
+        </script>
+    {% endblock %}
 </html>

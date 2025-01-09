@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<section class="section">
+    <div class="content">
+        <h1 class="title is-1">Datos Personales</h1>
+        <p>
+            Necesito algunos datos personales tuyos. No te preocupes, sólo se usarán para este trabajo de investigación. 
+            Además, tu nombre y tu correo electrónico se guardarán separado de la demás información y solo se usan para 
+            asegurarme de que realmente existes como persona.
+        </p> 
+        <p>
+            Te preguntaré también sobre algunas enfermedades que has tenido o hábitos como fumar o si haces deporte 
+            y te pediré tu fecha de nacimiento. Estos datos me sirven para saber si la imagen que tienen las personas
+            de la fisioterapia cambia según su edad o sus hábitos.
+        </p>
+    </div>
+    <div>
+        <form>
+            <div class="box has-background-warning">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Nombre</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" placeholder="Nombre" name="firstname">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Apellidos</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" placeholder="Apellidos" name="lastname">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Fecha de Nacimiento</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="date" name="dateofbirth">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-calendar"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Género</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <div class="select is-primary" name="gender">
+                                    <select>
+                                      <option value="NA">Selecciona una opción</option>
+                                      <option value="MALE">Hombre</option>
+                                      <option value="FEMALE">Mujer</option>
+                                      <option value="TRANSGENDER">Transgénero</option>
+                                      <option value="AGENDER">Asexual</option>
+                                      <option value="GENDERFLUID">Género fluido</option>
+                                      <option value="NONBINARY">No binary</option>
+                                      <option value="GENDERQUEER">Queer</option>
+                                      <option value="NA">No quiero especificar</option>
+                                    </select>
+                                  </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Código Postal</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" placeholder="Código Postal" name="postcode">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Correo electrónico</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded has-icons-left">
+                                <input class="input" type="text" placeholder="Correo electrónico" name="email">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box has-background-warning">
+                <div class="field">
+                    <label class="label">¿Fumas?</label>
+                    <div class="control">
+                        <input class="is-checkradio" id="smokerNo" type="radio" name="smoker" value="No" checked="checked">
+                        <label for="smokerNo">No</label>
+                        <input class="is-checkradio" id="smokerYes" type="radio" name="smoker" value="Yes">
+                        <label for="smokerYes">Sí</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">¿Haces deporte?</label>
+                    <div class="control">
+                        <input class="is-checkradio" id="sportNo" type="radio" name="sport" value="No" checked="checked">
+                        <label for="sportNo">No</label>
+                        <input class="is-checkradio" id="sportYes" type="radio" name="sport" value="Yes">
+                        <label for="sportYes">Sí</label>
+                    </div>
+                </div>
+            </div>
+            <div class="box has-background-warning">
+                <div class="field">
+                    <label class="label">¿Eres profesional sanitario?</label>
+                    <div class="control">
+                        <input class="is-checkradio" id="healthprofessionalNo" type="radio" name="healthprofessional" value="No" checked="checked" onchange="toggleProfessionPanel(event)">
+                        <label for="healthprofessionalNo">No</label>
+                        <input class="is-checkradio" id="healthprofessionalYes" type="radio" name="healthprofessional" value="Yes"  onchange="toggleProfessionPanel(event)">
+                        <label for="healthprofessionalYes">Sí</label>
+                    </div>
+                </div>
+                <div class="panel is-hidden" id="panelProfessions">
+                    <p class="panel-heading">Profesiones sanitarias</p>
+                    <label class="panel-block">
+                        <input type="checkbox" name="prof-medico"/>
+                        médico
+                    </label>
+                    <label class="panel-block">
+                        <input type="checkbox" name="prof-farmaceutico"/>
+                        farmaceutico
+                    </label>
+                    <label class="panel-block">
+                        <input type="checkbox" name="prof-fisioterapeuta"/>
+                        fisioterapeuta
+                    </label>
+                    <label class="panel-block">
+                        <input type="checkbox" name="prof-enfermero"/>
+                        enfermero
+                    </label>
+                        <label class="panel-block">
+                        <input type="checkbox" name="prof-podologo"/>
+                        podólogo
+                    </label>
+                    <label class="panel-block">
+                        <input type="checkbox" name="prof-terapeutaocupacional"/>
+                        terapeuta ocupacional
+                    </label>
+                    <div class="panel-block"> 
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">otra:</label>
+                            </div>
+                            <div class="field-body">
+                                <p class="control">
+                                    <input class="input" type="text" name="prof-other"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">¿Tienes una enfermedad autoimune o neurodegenerativa?</label>
+                    <div class="control">
+                        <input class="is-checkradio" id="pathologies01" type="radio" name="pathologies" value="No" checked="checked" onchange="togglePathologies(event)">
+                        <label for="pathologies01">No</label>
+                        <input class="is-checkradio" id="pathologies02" type="radio" name="pathologies" value="Yes" onchange="togglePathologies(event)">
+                        <label for="pathologies02">Sí</label>
+                    </div>
+                </div>
+                <div class="panel is-hidden" id="panelPathologies">
+                    <p class="panel-heading">Patologías</p>
+                    <label class="panel-block">
+                        <input type="checkbox" name="pat-diabetes"/>
+                        diabetes mellitus
+                    </label>
+                    <label class="panel-block">
+                        <input type="checkbox" name="pat-ms"/>
+                        esclerosis múltiple
+                    </label>
+                    <label class="panel-block">
+                        <input type="checkbox" name="pat-parkinson"/>
+                        morbus Parkinson
+                    </label>
+                    <label class="panel-block">
+                        <input type="checkbox" name="pat-ictus"/>
+                        ictus / accidente cerebro-vascular
+                    </label>
+                    <label class="panel-block">
+                        <input type="checkbox" name="pat-hta"/>
+                        hipertensión arterial
+                    </label>
+                    <div class="panel-block"> 
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">otra:</label>
+                            </div>
+                            <div class="field-body">
+                                <p class="control">
+                                    <input class="input" type="text" name="pat-other"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+{{block.super}}
+<script>
+ function toggleProfessionPanel(event){
+    //healthProfessional = document.getElementsByName("healthprofessional");
+    panel = document.getElementById("panelProfessions");
+    if(event.target.value == "No"){
+        panel.classList.add("is-hidden")
+    }else if(event.target.value == "Yes"){
+        panel.classList.remove("is-hidden")
+    }
+ };
+ function togglePathologies(event){
+    panel = document.getElementById("panelPathologies");
+    if(event.target.value == "No"){
+        panel.classList.add("is-hidden")
+    }else if(event.target.value == "Yes"){
+        panel.classList.remove("is-hidden")
+    }
+ };
+</script>
+{% endblock %}

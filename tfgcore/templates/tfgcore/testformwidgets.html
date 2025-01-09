@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<section class="section">
+    <div class="content">
+        <h1 class="title is-1">Test de widgets</h1>
+
+        <div class="columns">
+            <div class="column">
+                <span id="painSliderLess" class="tag is-success" style="min-width: 100px; opacity: 0.5;">sin dolor</span>
+            </div>
+            <div class="column is-8">
+                <input id="painSlider" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+            </div>
+            <div class="column">
+                <span id="painSliderMore" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">insoportable</span>
+            </div>
+        </div>
+        <div class="field">
+            <input class="is-checkradio is-success" id="exampleCheckbox" type="checkbox" name="exampleCheckbox" checked="checked">
+            <label for="exampleCheckbox">Check me</label>
+          </div>
+          <div class="field">
+            <input class="is-checkradio" id="exampleRadioInline1" type="radio" name="exampleRadioInline" checked="checked">
+            <label for="exampleRadioInline1">No</label>
+            <input class="is-checkradio" id="exampleRadioInline2" type="radio" name="exampleRadioInline">
+            <label for="exampleRadioInline2">Sí</label>
+          </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script>
+    function rangeChangeHandler(event){
+        console.log(event.target.value);
+        lessTag = document.getElementById(event.target.id + "Less");
+        lessTag.style.opacity = 1 - event.target.value / 100
+        moreTag = document.getElementById(event.target.id + "More");
+        moreTag.style.opacity = event.target.value / 100
+    }
+
+
+</script>
+{% endblock %}

@@ -11,9 +11,12 @@
             <h1 class="title">¡Hola!</h1>
             <h2 class="subtitle">Tengo algunas preguntas para tí.</h2>
         </div>
-        <div class="section is-size-6">
+        <div class="section">
             <div class="columns">
-                <div class="column">
+                <div class="column is-3">
+                    <img src="{% static 'tfgcore/img/avatar.svg' %}" >
+                </div>
+                <div class="column is-6">
                     <p>
                         Me llamo Markus y estoy haciendo un trabajo
                         sobre la imagen que tienen las personas como tú
@@ -31,13 +34,9 @@
                         ¿Qué me dices, truco o trato?
                     </p>
                     <div class="section">
-                        <a href="{% url 'tfgcore:personaldata' %}" class="button is-info">Adelante!</a>
+                        <a href="{% url 'tfgcore:personaldata' %}" class="button is-success">Adelante!</a>
+                        <a href="https://google.com" class="button is-danger">No gracias.</a>
                     </div>
-                </div>
-                <div class="column is-one-fifth">
-                    <figure class="image is-3by5">
-                        <img src="{% static 'tfgcore/img/profile01.jpg' %}" >
-                    </figure>
                 </div>
             </div>
         </div>
