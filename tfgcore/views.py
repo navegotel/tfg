@@ -7,6 +7,10 @@ def about(request):
     return render(request, 'tfgcore/sobre_la_encuesta.html')
 
 def personaldata(request):
+    if request.method == "POST":
+        #print(request.POST)
+        pass
+        
     return render(request, 'tfgcore/personaldata.html')
 
 def testformwidgets(request):
