@@ -24,6 +24,7 @@ class Participant(models.Model):
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, help_text="Usuario con login")
+    hash = models.IntegerField("Hash")
     creation_date = models.DateTimeField("Creado", help_text="Fecha de creación del registro.", auto_now_add=True)
     age_range = models.IntegerField("Rango de edad", choices=AGE_RANGE_CHOICES, blank=True, null=True)
     gender = models.CharField("Género", max_length=12, choices=GENDER_CHOICES, blank=True, null=True)

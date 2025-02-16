@@ -20,6 +20,8 @@
             <link href="{% static 'tfgcore/css/bulma/css/bulma-checkradio.min.css' %}" rel="stylesheet">
     </head>
     <body>
+        {% block progress %}
+        {% endblock %}
         {% block body %}
         {% endblock %}
         {% block footer %}
@@ -27,11 +29,11 @@
             <nav class="navbar">
                 <div class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item">
-                            Aviso Legal
+                        <a class="navbar-item" href="{% url 'tfgcore:landing' %}">
+                            Inicio
                         </a>
-                        <a class="navbar-item">
-                            Política de Privacidad
+                        <a class="navbar-item" href="{% url 'tfgcore:legalstuff' %}">
+                            Aviso Legal
                         </a>
                         <a class="navbar-item" href="{% url 'tfgcore:about' %}">
                             Sobre la Encuesta
@@ -41,12 +43,17 @@
             </nav>
         </footer>
         {% endblock %}
+        {% block modal %}
+            {% block modalcontent %}
+        
+            {% endblock %}
+        {% endblock %}
+  
+        {% block js %}
+            <script src="{% static 'tfgcore/js/bulma-slider.min.js' %}"></script>
+            <script>
+                bulmaSlider.attach();
+            </script>
+        {% endblock %}
     </body>
-    {% block js %}
-        <script src="{% static 'tfgcore/js/bulma-slider.min.js' %}"></script>
-        <script>
-            bulmaSlider.attach();
-            bulmaCalendar.attach();
-        </script>
-    {% endblock %}
 </html>

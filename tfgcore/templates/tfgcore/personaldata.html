@@ -1,9 +1,13 @@
-{% extends "base.html" %}
+{% extends "baseform.html" %}
 {% load static %}
+{% block progress %}
+<figure class="image px-5">
+    <img src="{% static 'tfgcore/img/progress_personal_data.svg' %}">
+</figure>
+{% endblock %}
 {% block body %}
 <section class="section">
     <div class="content">
-        <h1 class="title is-1">Datos Personales</h1>
         <p>
             Esta encuesta cuenta con la autorización de la <a href="https://oir.umh.es/presentacion/">
             Oficina de Investigación Responsable de la Universidad Miguel Hernández</a> 
@@ -22,7 +26,7 @@
         </p>
     </div>
     <div>
-        <form method="post">
+        <form method="post" id="questionnaire">
             {% csrf_token %}
             <div class="box has-background-warning"> 
                 <div class="field is-horizontal">
@@ -134,45 +138,6 @@
                         <label for="healthprofessionalYes">Sí</label>
                     </div>
                 </div>
-                <div class="panel is-hidden" id="panelProfessions">
-                    <p class="panel-heading">Profesiones sanitarias</p>
-                    <label class="panel-block">
-                        <input type="checkbox" name="prof-medico"/>
-                        médico
-                    </label>
-                    <label class="panel-block">
-                        <input type="checkbox" name="prof-farmaceutico"/>
-                        farmaceutico
-                    </label>
-                    <label class="panel-block">
-                        <input type="checkbox" name="prof-fisioterapeuta"/>
-                        fisioterapeuta
-                    </label>
-                    <label class="panel-block">
-                        <input type="checkbox" name="prof-enfermero"/>
-                        enfermero
-                    </label>
-                        <label class="panel-block">
-                        <input type="checkbox" name="prof-podologo"/>
-                        podólogo
-                    </label>
-                    <label class="panel-block">
-                        <input type="checkbox" name="prof-terapeutaocupacional"/>
-                        terapeuta ocupacional
-                    </label>
-                    <div class="panel-block"> 
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                                <label class="label">otra:</label>
-                            </div>
-                            <div class="field-body">
-                                <p class="control">
-                                    <input class="input" type="text" name="prof-other"/>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="field">
                     <label class="label">¿Tienes una enfermedad autoimune o neurodegenerativa?</label>
                     <div class="control">
@@ -182,67 +147,32 @@
                         <label for="pathologies02">Sí</label>
                     </div>
                 </div>
-                <div class="panel is-hidden" id="panelPathologies">
-                    <p class="panel-heading">Patologías</p>
-                    <label class="panel-block">
-                        <input type="checkbox" name="pat-diabetes"/>
-                        diabetes mellitus
-                    </label>
-                    <label class="panel-block">
-                        <input type="checkbox" name="pat-ms"/>
-                        esclerosis múltiple
-                    </label>
-                    <label class="panel-block">
-                        <input type="checkbox" name="pat-parkinson"/>
-                        morbus Parkinson
-                    </label>
-                    <label class="panel-block">
-                        <input type="checkbox" name="pat-ictus"/>
-                        ictus / accidente cerebro-vascular
-                    </label>
-                    <label class="panel-block">
-                        <input type="checkbox" name="pat-hta"/>
-                        hipertensión arterial
-                    </label>
-                    <div class="panel-block"> 
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                                <label class="label">otra:</label>
-                            </div>
-                            <div class="field-body">
-                                <p class="control">
-                                    <input class="input" type="text" name="pat-other"/>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <button class="button is-info">Vamos a seguir!</button>
         </form>
+        <div class="level my-5">
+            <div class="level-left">
+                <button class="button is-info" onclick="showModal()">Vamos a seguir!</button>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
 
-{% block js %}
-{{block.super}}
-<script>
- function toggleProfessionPanel(event){
-    //healthProfessional = document.getElementsByName("healthprofessional");
-    panel = document.getElementById("panelProfessions");
-    if(event.target.value == "No"){
-        panel.classList.add("is-hidden")
-    }else if(event.target.value == "Yes"){
-        panel.classList.remove("is-hidden")
-    }
- };
- function togglePathologies(event){
-    panel = document.getElementById("panelPathologies");
-    if(event.target.value == "No"){
-        panel.classList.add("is-hidden")
-    }else if(event.target.value == "Yes"){
-        panel.classList.remove("is-hidden")
-    }
- };
-</script>
+{% block modalcontent %}
+    <div class="content">
+        <p>
+            En España para ser fisioterapeuta hay que cursar
+            una carrera universitaria de cuatro años.
+        </p>
+        <p>
+            Todos los fisioterapeutas tienen obligación de
+            colegiarse. Puedes consultar un listado de todos
+            los fisioterapeutas en la Comunidad Valenciana
+            en la <a href="https://www.colfisiocv.com/node/26074" target="_blank">
+                página del Colegio de Fisioterapeutas</a>
+            y así puedes ver si tu fisio está colegiado.
+        </p>
+    </div>
+    <button class="button" form="questionnaire">Cerrar y seguir</button>
+    </div>
 {% endblock %}
