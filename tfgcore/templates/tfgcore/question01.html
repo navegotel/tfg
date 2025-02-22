@@ -8,5 +8,45 @@
 
 {% block body %}
 <section class="section">
+    <h2>¿Has estado en tratamiento de fisioterapia en los últimos años?</h2>
+    <form method="post" id="questionnaire">
+        {% csrf_token %}
+        <div class="control my-4">
+            <div class="field">
+                <input class="is-checkradio" id="1" value="1" type="radio" name="intreatment">
+                <label for="1">No</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="2" value="2" type="radio" name="intreatment">
+                <label for="2">Sí, hace menos de un años.</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="3" value="3" type="radio" name="intreatment">
+                <label for="3">Sí, hace más de un año pero menos de tres años.</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="4" value="4" type="radio" name="intreatment">
+                <label for="4">Sí, hace más de tres años.</label>
+            </div>
+        </div>
+    </form>
+    <div class="level my-5">
+        <div class="level-left">
+            <button class="button is-info" onclick="showModal()">Vamos a seguir!</button>
+        </div>
+    </div>
 </section>
+{% endblock %}
+
+{% block modalcontent %}
+    <div class="content">
+        <p>
+        La gran mayoría de las lumbalgias son inespecíficas, es decir que no 
+        se puede determinar la causa. Así que, no pienses directamente en una 
+        hernia si tienes dolor de espalda baja. Y aunque fuera una hernia, que
+        sepas que la gran mayoría de ellas se resuelven solas y el tratamiento 
+        conservador suele dar buenos resultados.
+        </p>
+    <button class="button" form="questionnaire">Cerrar y seguir</button>
+    </div>
 {% endblock %}

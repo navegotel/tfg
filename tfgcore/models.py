@@ -68,10 +68,10 @@ class Answers(models.Model):
     answer01 = models.IntegerField("Tratamiento reciente", choices=CHOICES_ANSWER1, default=1)
     
     # ¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?
-    answer01h = models.BooleanField("No me acuerdo", default=False)
+    answer01a = models.BooleanField("No me acuerdo", default=False)
     answer01b = models.BooleanField("Corrientes eléctricas", default=False)
     answer01c = models.BooleanField("Agujas", default=False)
-    answer01d = models.BooleanField("Movilizaciones y masaje", default=False)
+    answer01d = models.BooleanField("Terapia manual, masajes o movilizaciones", default=False)
     answer01e = models.BooleanField("Ejercicio terapéutico", default=False)
     answer01f = models.BooleanField("Ultrasonido", default=False)
     answer01g = models.BooleanField("Magnetoterapia", default=False)

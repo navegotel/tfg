@@ -1,0 +1,18 @@
+{% extends "baseform.html" %}
+{% load static %}
+{% block progress %}
+<figure class="image px-5">
+    <img src="{% static 'tfgcore/img/progress_question04.svg' %}">
+</figure>
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    <h2>¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?</h2>
+    <form method="post" id="questionnaire">
+        <div class="control my-4">
+            
+        </div>
+    </form>
+</section>
+{% endblock %}
