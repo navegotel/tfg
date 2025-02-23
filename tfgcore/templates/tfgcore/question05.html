@@ -8,11 +8,85 @@
 
 {% block body %}
 <section class="section">
-    <h2>¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?</h2>
+    <h2 class="is-size-5">¿Cuáles de las siguientes crees que son profesiones sanitarias reconocidas en España?</h2>
     <form method="post" id="questionnaire">
         <div class="control my-4">
-            
+                {% csrf_token %}
+                <div class="control my-4">
+                    <div class="field">
+                        <input class="is-checkradio" id="1" value="1" type="checkbox" name="healthprofession">
+                        <label class="label" for="1">Osteópata</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="2" value="2" type="checkbox" name="healthprofession">
+                        <label class="label" for="2">Masajista</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="3" value="3" type="checkbox" name="healthprofession">
+                        <label class="label" for="3">Fisioterapeuta</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="4" value="4" type="checkbox" name="healthprofession">
+                        <label class="label" for="4">Podólogo</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="5" value="5" type="checkbox" name="healthprofession">
+                        <label class="label" for="5">Naturópata</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="6" value="6" type="checkbox" name="healthprofession">
+                        <label class="label" for="6">Quiropráctico</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="7" value="7" type="checkbox" name="healthprofession">
+                        <label class="label" for="7">Enfermero</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="8" value="8" type="checkbox" name="healthprofession">
+                        <label class="label" for="8">Farmacéutico</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="level my-5">
+            <div class="level-left">
+                <button class="button is-info" onclick="showModal()">Vamos a seguir!</button>
+            </div>
         </div>
-    </form>
 </section>
+{% endblock %}
+
+{% block modalcontent %}
+    <div class="content">
+        <p>
+            La <a href="https://www.who.int/es" target="_blank">OMS</a> recomienda caminar
+            media hora al día como mínimo. Pero no solo la cantidad, también la intensidad
+            es importante. Lo ideal para una persona sana es percibir un esfuerzo moderado.
+        </p>
+        <p>
+            Los siguientes consejos contribuyen a motivarse:
+        </p>
+        <ul>
+            <li>
+                Apuntar cada caminata en el calendario.
+            </li>
+            <li>
+                Variar los recorridos y controlar la distancia y el tiempo 
+                con un tracker o una aplicación del móvil.
+            </li>
+            <li>
+                Quedar con amigos para la caminata.
+            </li>
+            <li>
+                Intercalar alguna parada para hacer ejercicio en un 
+                parque de calestenia, con banda elástica o sencillamente
+                en el suelo o en un murete.
+            </li>
+            <li>
+                Ponerse un objetivo, por ejemplo prepararse para participar 
+                en una excursión organizada.
+            </li>
+        </ul>
+    <button class="button" form="questionnaire">Cerrar y seguir</button>
+    </div>
 {% endblock %}

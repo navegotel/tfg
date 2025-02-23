@@ -93,12 +93,12 @@ class Answers(models.Model):
     # ¿Qué importancia tienen los siguientes factores para usted para elegir un fisioterapeuta?
     answer03a = models.IntegerField("Recomendación por parte de familiares o amigos", blank=True, null=True)
     answer03b = models.IntegerField("Recomendación por parte del médico", blank=True, null=True)
-    answer03c = models.IntegerField("Distancia y aparacamiento", blank=True, null=True)
+    answer03c = models.IntegerField("Fácil de llegar, distancia y aparcamiento", blank=True, null=True)
     answer03d = models.IntegerField("Especialización en el problema de salud que le afecte", blank=True, null=True)
     answer03e = models.IntegerField("Equipación con aparatos", blank=True, null=True)
     answer03f = models.IntegerField("Aplicación de determinadas técnicas (masaje, punción seca)", blank=True, null=True)
     
-    # ¿Cuáles de las siguientes son profesiones sanitarias reconocidas en España?
+    # ¿Cuáles de las siguientes crees que son profesiones sanitarias reconocidas en España?
     answer04a = models.IntegerField("Osteopata", choices=FIVE_ITEMS_CHOICES, blank=True, null=True)
     answer04b = models.IntegerField("Masajista", choices=FIVE_ITEMS_CHOICES, blank=True, null=True)
     answer04c = models.IntegerField("Fisioterapeuta", choices=FIVE_ITEMS_CHOICES, blank=True, null=True)
@@ -106,6 +106,7 @@ class Answers(models.Model):
     answer04e = models.IntegerField("Naturópata", choices=FIVE_ITEMS_CHOICES, blank=True, null=True)
     answer04f = models.IntegerField("Quiropráctico", choices=FIVE_ITEMS_CHOICES, blank=True, null=True)
     answer04g = models.IntegerField("Enfermero", choices=FIVE_ITEMS_CHOICES, blank=True, null=True)
+    answer04h = models.IntegerField("Farmacéutico", choices=FIVE_ITEMS_CHOICES, blank=True, null=True)
     
     # ¿Cuánta confianza tiene en las siguientes terapias?
     answer05a = models.IntegerField("Electroterapia", blank=True, null=True)

@@ -8,7 +8,7 @@
 
 {% block body %}
 <section class="section">
-    <h2>¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?</h2>
+    <h2 class="is-size-5">¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?</h2>
     <form method="post" id="questionnaire">
         {% csrf_token %}
         <div class="control my-4">
@@ -44,7 +44,7 @@
         <div class="field">
             <label class="label">Otro tratamiento</label>
             <p class="control is-expanded has-icons-left">
-                <input class="input" type="text" placeholder="otro tratamiento" name="otrotratamiento">
+                <input class="input" type="text" placeholder="otro tratamiento" name="othertreatment">
                 <span class="icon is-small is-left">
                     <i class="fas fa-syringe"></i>
                 </span>
@@ -64,13 +64,13 @@
         <p>
             Las estadísticas y los diagramas que se publican en los medios de comunicación
             suelen reflejar una población en un momento dado. Ahí entran personas sedentarias
-            y activas, fumadores y no-fumadores, gente con dieta sana y asiduos del McBurger.
+            y activas, fumadores y no-fumadores, gente con dieta sana y asiduos al McBurger.
         </p>
         <p>
             Cuando lees que con una determinada enfermedad hay una esperanza de vida
             de x años, no le hagas mucho caso. ¡Es una media, no un hecho inamovible!
             Según la patología, el estilo de vida puede
-            influir mucho. No hagas caso, informate bien sobre tu enfermedad. 
+            influir mucho. No hagas caso, infórmate bien sobre tu enfermedad. 
             ¡Probablemente tu esperanza de vida está en tus manos!
         </p>
     <button class="button" form="questionnaire">Cerrar y seguir</button>

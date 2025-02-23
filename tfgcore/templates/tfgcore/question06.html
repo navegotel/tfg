@@ -8,11 +8,39 @@
 
 {% block body %}
 <section class="section">
-    <h2>¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?</h2>
+    <h2 class="is-size-5">¿Qué importancia cree que tienen los ejercicios que el fisioterapeuta le pauta para hacerlos en casa?</h2>
     <form method="post" id="questionnaire">
         <div class="control my-4">
-            
+            <div class="columns">
+                <div class="column">
+                    <span id="SliderLess" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+                </div>
+                <div class="column">
+                    <span id="SliderMore" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                </div>
+            </div>
         </div>
     </form>
+    <div class="level my-5">
+        <div class="level-left">
+            <button class="button is-info" onclick="showModal()">Vamos a seguir!</button>
+        </div>
+    </div>
 </section>
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script>
+    function rangeChangeHandler(event){
+        console.log(event.target.value);
+        lessTag = document.getElementById(event.target.id + "Less");
+        lessTag.style.opacity = 1 - event.target.value / 100
+        moreTag = document.getElementById(event.target.id + "More");
+        moreTag.style.opacity = event.target.value / 100
+    }
+</script>
 {% endblock %}

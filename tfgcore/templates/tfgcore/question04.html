@@ -8,11 +8,74 @@
 
 {% block body %}
 <section class="section">
-    <h2>¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?</h2>
+    <h2 class="is-size-5">¿Qué importancia tienen los siguientes factores para ti a la hora de elegir a un fisioterapeuta?</h2>
     <form method="post" id="questionnaire">
         <div class="control my-4">
-            
+                {% csrf_token %}
+                <div class="control my-4">
+                    <div class="field">
+                        <input class="is-checkradio" id="1" value="1" type="checkbox" name="electionfactors">
+                        <label class="label" for="1">Recomendación por parte de familiares o amigos</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="2" value="2" type="checkbox" name="electionfactors">
+                        <label class="label" for="2">Recomendación por parte del médico</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="3" value="3" type="checkbox" name="electionfactors">
+                        <label class="label" for="3">Fácil de llegar, distancia y aparcamiento</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="4" value="4" type="checkbox" name="electionfactors">
+                        <label class="label" for="4">Especialización en el problema de salud que te afecte</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="5" value="5" type="checkbox" name="electionfactors">
+                        <label class="label" for="5">Equipación con aparatos</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="6" value="6" type="checkbox" name="electionfactors">
+                        <label class="label" for="6">Aplicación de determinadas técnicas (masaje, punción seca, etc.)</label>
+                    </div>
+                    <div class="field">
+                        <input class="is-checkradio" id="7" value="7" type="checkbox" name="electionfactors">
+                        <label class="label" for="7">Precio</label>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Otros motivos</label>
+                <p class="control is-expanded has-icons-left">
+                    <input class="input" type="text" placeholder="otros motivos" name="otherreasons">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-thumbs-up"></i>
+                    </span>
+                </p>
+            </div>
         </div>
     </form>
+    <div class="level my-5">
+        <div class="level-left">
+            <button class="button is-info" onclick="showModal()">Vamos a seguir!</button>
+        </div>
+    </div>
 </section>
+{% endblock %}
+
+{% block modalcontent %}
+    <div class="content">
+        <p>
+            No hay manera de medir el dolor de forma objetiva. De hecho,
+            la misma persona puede percibir el mismo estímulo doloroso de 
+            forma diferente según las circunstancias. Incluso el estado
+            de ánimo de una persona influye en la intensidad en la que se 
+            percibe. De hecho, la amígdala, una parte del cerebro que juega
+            un papel importante en las emociones, también está involucrada
+            en la percepción del dolor.
+        </p>
+        <p>
+
+        </p>
+    <button class="button" form="questionnaire">Cerrar y seguir</button>
+    </div>
 {% endblock %}

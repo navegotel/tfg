@@ -8,11 +8,80 @@
 
 {% block body %}
 <section class="section">
-    <h2>¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?</h2>
+    <h2 class="is-size-5">¿Con cuál de los siguientes problemas de salud acudirías a un fisioterapeuta?</h2>
     <form method="post" id="questionnaire">
+        {% csrf_token %}
         <div class="control my-4">
-            
+            <div class="field">
+                <input class="is-checkradio" id="1" value="1" type="checkbox" name="relatedtreatments">
+                <label class="label" for="1">Problemas respiratorios</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="2" value="2" type="checkbox" name="relatedtreatments">
+                <label class="label" for="2">Dolor de espalda</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="3" value="3" type="checkbox" name="relatedtreatments">
+                <label class="label" for="3">Dolor de hombro</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="4" value="4" type="checkbox" name="relatedtreatments">
+                <label class="label" for="4">Enfermedades relacionadas con el corazón</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="5" value="5" type="checkbox" name="relatedtreatments">
+                <label class="label" for="5">Dolor en las articulaciones</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="6" value="6" type="checkbox" name="relatedtreatments">
+                <label class="label" for="6">Diabetes</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="7" value="7" type="checkbox" name="relatedtreatments">
+                <label class="label" for="7">Parkinson</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="8" value="8" type="checkbox" name="relatedtreatments">
+                <label class="label" for="8">Problemas de visión o auditivos</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="9" value="9" type="checkbox" name="relatedtreatments">
+                <label class="label" for="9">Dolor de cabeza</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="10" value="10" type="checkbox" name="relatedtreatments">
+                <label class="label" for="10">Preparación al parto</label>
+            </div>
+            <div class="field">
+                <input class="is-checkradio" id="11" value="11" type="checkbox" name="relatedtreatments">
+                <label class="label" for="11">Estreñimiento crónico</label>
+            </div>
         </div>
     </form>
+    <div class="level my-5">
+        <div class="level-left">
+            <button class="button is-info" onclick="showModal()">Vamos a seguir!</button>
+        </div>
+    </div>
 </section>
+{% endblock %}
+
+{% block modalcontent %}
+    <div class="content">
+        <p>
+            Tenemos 206 huesos, aunque algunas personas pueden tener algunos más o menos.
+        </p>
+        <p>
+            Los huesos son un tejido vivo y se regeneran constantemente. 
+            Las actividades físicas ayudan a mantener una buena densidad
+            ósea, sobre todo cuando implican una cierta energía de impacto.
+        </p>
+        <!--p>
+            Florence GE, Oosthuyse T, Bosch AN. 
+            Skeletal site-specific effects of jump training on bone mineral density in adults: 
+            a systematic review and meta-analysis. J Sports Sci. 2023 Dec;41(23):2063-2076. 
+            doi: 10.1080/02640414.2024.2312052. Epub 2024 Feb 2. PMID: 38305252.
+        </p-->
+    <button class="button" form="questionnaire">Cerrar y seguir</button>
+    </div>
 {% endblock %}
