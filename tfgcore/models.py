@@ -24,13 +24,12 @@ class Participant(models.Model):
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, help_text="Usuario con login")
-    hash = models.IntegerField("Hash")
     creation_date = models.DateTimeField("Creado", help_text="Fecha de creación del registro.", auto_now_add=True)
     age_range = models.IntegerField("Rango de edad", choices=AGE_RANGE_CHOICES, blank=True, null=True)
     gender = models.CharField("Género", max_length=12, choices=GENDER_CHOICES, blank=True, null=True)
     health_care_professional = models.BooleanField("Profesional sanitario", default=False)
     smoking = models.BooleanField("Fumador", default=False)
-    sports = models.IntegerField("Deporte", blank=True, null=True)
+    sports = models.BooleanField("Deporte", blank=True, null=True)
     chronic_disease = models.BooleanField("Enf. crónica", default=False)   
 
 
@@ -64,6 +63,7 @@ class Answers(models.Model):
         (5, "Estoy totalmente de acuerdo")
     ]
     
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     # ¿Ha estado en tratamiento de fisioterapia en los últimos años?
     answer01 = models.IntegerField("Tratamiento reciente", choices=CHOICES_ANSWER1, default=1)
     

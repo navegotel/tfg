@@ -8,6 +8,22 @@
 
 {% block body %}
 <section class="section">
+    {% if msgs %}
+        <div class="message is-danger">
+            <div class="message-header">
+                <p>Echa un vistazo</p>
+            </div>
+            <div class="message-body">
+                <div class="content">
+                    {% for msg in msgs %}
+                        <p>
+                            {{msg}}
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <h2 class="is-size-5">¿Con cuál de los siguientes problemas de salud acudirías a un fisioterapeuta?</h2>
     <form method="post" id="questionnaire">
         {% csrf_token %}
