@@ -89,6 +89,9 @@ class Answers(models.Model):
     answer02i = models.IntegerField("Dolor de cabeza", blank=True, null=True)
     answer02j = models.IntegerField("Preparación al parto", blank=True, null=True)
     answer02k = models.IntegerField("Estreñimiento crónico", blank=True, null=True)
+    answer02l = models.IntegerField("Lesiones deportivas", blank=True, null=True)
+    answer02m = models.IntegerField("Cáncer", blank=True, null=True)
+
 
     # ¿Qué importancia tienen los siguientes factores para usted para elegir un fisioterapeuta?
     answer03a = models.IntegerField("Recomendación por parte de familiares o amigos", blank=True, null=True)
@@ -97,6 +100,9 @@ class Answers(models.Model):
     answer03d = models.IntegerField("Especialización en el problema de salud que le afecte", blank=True, null=True)
     answer03e = models.IntegerField("Equipación con aparatos", blank=True, null=True)
     answer03f = models.IntegerField("Aplicación de determinadas técnicas (masaje, punción seca)", blank=True, null=True)
+    answer03g = models.IntegerField("Precio", blank=True, null=True)
+    answer03other = models.CharField("Otros tratamientos", blank=True, null=True, max_length=100)
+
     
     # ¿Cuáles de las siguientes crees que son profesiones sanitarias reconocidas en España?
     answer04a = models.IntegerField("Osteopata", choices=FIVE_ITEMS_CHOICES, blank=True, null=True)
@@ -112,13 +118,14 @@ class Answers(models.Model):
     answer05a = models.IntegerField("Electroterapia", blank=True, null=True)
     answer05b = models.IntegerField("Punción seca (terapia con agujas)", blank=True, null=True)
     answer05c = models.IntegerField("Ejercicio terapéutico", blank=True, null=True)
-    answer05c = models.IntegerField("Tratamiento con Láser", blank=True, null=True)
-    answer05d = models.IntegerField("Bioresoncancia", blank=True, null=True)
-    answer05e = models.IntegerField("Aplicación de frío o calor", blank=True, null=True)
-    answer05f = models.IntegerField("Terapia manual y masaje", blank=True, null=True)
-    answer05g = models.IntegerField("Aromaterapia", blank=True, null=True)
-    answer05j = models.IntegerField("Magnetoterapia", blank=True, null=True)
-    answer05k = models.IntegerField("Biodescodificación", blank=True, null=True)
+    answer05d = models.IntegerField("Tratamiento con Láser", blank=True, null=True)
+    answer05e = models.IntegerField("Biorresoncancia", blank=True, null=True)
+    answer05f = models.IntegerField("Aplicación de frío o calor", blank=True, null=True)
+    answer05g = models.IntegerField("Terapia manual y masaje", blank=True, null=True)
+    answer05h = models.IntegerField("Aromaterapia", blank=True, null=True)
+    answer05i = models.IntegerField("Magnetoterapia", blank=True, null=True)
+    answer05j = models.IntegerField("Biodescodificación", blank=True, null=True)
+    answer05other = models.CharField("Otros tratamientos", blank=True, null=True, max_length=100)
 
     # ¿Qué importancia cree que tienen los ejercicios que el fisioterapeuta le pauta para hacerlos en casa?
     answer05 = models.IntegerField("Importancia ejercicio pautado", blank=True, null=True)

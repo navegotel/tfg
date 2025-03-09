@@ -166,18 +166,64 @@ def question03(request):
 
 def question04(request):
     if request.method == "POST":
+        answers = Answers.objects.filter(user=request.user)[0]
+        answers.answer03a = int(request.POST.get('answer03a'))
+        answers.answer03b = int(request.POST.get('answer03b'))
+        answers.answer03c = int(request.POST.get('answer03c'))
+        answers.answer03d = int(request.POST.get('answer03d'))
+        answers.answer03e = int(request.POST.get('answer03e'))
+        answers.answer03f = int(request.POST.get('answer03f'))
+        answers.answer03g = int(request.POST.get('answer03g'))
+        answers.answer03other = (request.POST.get('otherreasons'))
+        answers.save()
         return redirect(reverse('tfgcore:question05'))
     return render(request, 'tfgcore/question04.html')
 
 
 def question05(request):
     if request.method == "POST":
+        msgs = []
+        if request.POST.get('healthprofession') is None:
+            msgs.append("No has marcado ninguna de las opciones.")
+            return render(request, 'tfgcore/question05.html', {'msgs': msgs})
+        answers = Answers.objects.filter(user=request.user)[0]
+        healthprofession = request.POST.getlist('healthprofession')
+        if '1' in healthprofession:
+            answers.answer04a = True
+        if '2' in healthprofession:
+            answers.answer04b = True
+        if '3' in healthprofession:
+            answers.answer04c = True
+        if '4' in healthprofession:
+            answers.answer04d = True
+        if '5' in healthprofession:
+            answers.answer04e = True
+        if '6' in healthprofession:
+            answers.answer04f = True
+        if '7' in healthprofession:
+            answers.answer04g = True
+        if '8' in healthprofession:
+            answers.answer04h = True
+        answers.save()
         return redirect(reverse('tfgcore:question06'))
     return render(request, 'tfgcore/question05.html')
 
 
 def question06(request):
     if request.method == "POST":
+        answers = Answers.objects.filter(user=request.user)[0]
+        answers.answer05a = int(request.POST.get('answer05a'))
+        answers.answer05b = int(request.POST.get('answer05b'))
+        answers.answer05c = int(request.POST.get('answer05c'))
+        answers.answer05d = int(request.POST.get('answer05d'))
+        answers.answer05e = int(request.POST.get('answer05e'))
+        answers.answer05f = int(request.POST.get('answer05f'))
+        answers.answer05g = int(request.POST.get('answer05g'))
+        answers.answer05h = int(request.POST.get('answer05h'))
+        answers.answer05i = int(request.POST.get('answer05i'))
+        answers.answer05j = int(request.POST.get('answer05j'))
+        answers.answer05other = request.POST.get('others')
+        answers.save()
         return redirect(reverse('tfgcore:question07'))
     return render(request, 'tfgcore/question06.html')
 

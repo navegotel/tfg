@@ -9,40 +9,111 @@
 {% block body %}
 <section class="section">
     <h2 class="is-size-5">¿Qué importancia tienen los siguientes factores para ti a la hora de elegir a un fisioterapeuta?</h2>
+    <p>
+        Para cada opción puedes deslizar el botón hacia la derecha. Cuanto más esté a la derecha, más importancia tiene.
+        Cuanto más esté a la izquierda, menos importancia tiene para ti.
+    </p>
     <form method="post" id="questionnaire">
+        {% csrf_token %}
         <div class="control my-4">
-                {% csrf_token %}
-                <div class="control my-4">
-                    <div class="field">
-                        <input class="is-checkradio" id="1" value="1" type="checkbox" name="electionfactors">
-                        <label class="label" for="1">Recomendación por parte de familiares o amigos</label>
-                    </div>
-                    <div class="field">
-                        <input class="is-checkradio" id="2" value="2" type="checkbox" name="electionfactors">
-                        <label class="label" for="2">Recomendación por parte del médico</label>
-                    </div>
-                    <div class="field">
-                        <input class="is-checkradio" id="3" value="3" type="checkbox" name="electionfactors">
-                        <label class="label" for="3">Fácil de llegar, distancia y aparcamiento</label>
-                    </div>
-                    <div class="field">
-                        <input class="is-checkradio" id="4" value="4" type="checkbox" name="electionfactors">
-                        <label class="label" for="4">Especialización en el problema de salud que te afecte</label>
-                    </div>
-                    <div class="field">
-                        <input class="is-checkradio" id="5" value="5" type="checkbox" name="electionfactors">
-                        <label class="label" for="5">Equipación con aparatos</label>
-                    </div>
-                    <div class="field">
-                        <input class="is-checkradio" id="6" value="6" type="checkbox" name="electionfactors">
-                        <label class="label" for="6">Aplicación de determinadas técnicas (masaje, punción seca, etc.)</label>
-                    </div>
-                    <div class="field">
-                        <input class="is-checkradio" id="7" value="7" type="checkbox" name="electionfactors">
-                        <label class="label" for="7">Precio</label>
-                    </div>
+            <label class="label">Recomendación por parte de familiares o amigos</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider1Less" class="tag is-danger" style="min-width: 100px;">Ninguna</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider1" name="answer03a" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="0" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider1More" class="tag is-success" style="min-width: 100px; opacity: 0.0;">Muchísima</span>
                 </div>
             </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Recomendación por parte del médico</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider2Less" class="tag is-danger" style="min-width: 100px;">Ninguna</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider2" name="answer03b" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="0" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider2More" class="tag is-success" style="min-width: 100px; opacity: 0.0;">Muchísima</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Fácil de llegar, distancia y aparcamiento</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider3Less" class="tag is-danger" style="min-width: 100px;">Ninguna</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider3" name="answer03c" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="0" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider3More" class="tag is-success" style="min-width: 100px; opacity: 0.0;">Muchísima</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Especialización en el problema de salud que te afecte</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider4Less" class="tag is-danger" style="min-width: 100px;">Ninguna</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider4" name="answer03d" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="0" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider4More" class="tag is-success" style="min-width: 100px; opacity: 0.0;">Muchísima</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Equipación con aparatos</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider5Less" class="tag is-danger" style="min-width: 100px;">Ninguna</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider5" name="answer03e" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="0" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider5More" class="tag is-success" style="min-width: 100px; opacity: 0.0;">Muchísima</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Aplicación de determinadas técnicas (masaje, punción seca, etc.)</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider6Less" class="tag is-danger" style="min-width: 100px;">Ninguna</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider6" name="answer03f" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="0" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider6More" class="tag is-success" style="min-width: 100px; opacity: 0.0;">Muchísima</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Precio</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider7Less" class="tag is-danger" style="min-width: 100px;">Ninguna</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider7" name="answer03g" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="0" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider7More" class="tag is-success" style="min-width: 100px; opacity: 0.0;">Muchísima</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
             <div class="field">
                 <label class="label">Otros motivos</label>
                 <p class="control is-expanded has-icons-left">
@@ -78,4 +149,16 @@
         </p>
     <button class="button" form="questionnaire">Cerrar y seguir</button>
     </div>
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script>
+    function rangeChangeHandler(event){
+        lessTag = document.getElementById(event.target.id + "Less");
+        lessTag.style.opacity = 1 - event.target.value / 100
+        moreTag = document.getElementById(event.target.id + "More");
+        moreTag.style.opacity = event.target.value / 100
+    }
+</script>
 {% endblock %}
