@@ -100,6 +100,7 @@ def question01(request):
     return render(request, 'tfgcore/question01.html')
 
 
+@login_required
 def question02(request):
     if request.method == "POST":
         msgs = []
@@ -129,6 +130,7 @@ def question02(request):
     return render(request, 'tfgcore/question02.html')
 
 
+@login_required
 def question03(request):
     if request.method == "POST":
         msgs = []
@@ -164,6 +166,7 @@ def question03(request):
     return render(request, 'tfgcore/question03.html')
 
 
+@login_required
 def question04(request):
     if request.method == "POST":
         answers = Answers.objects.filter(user=request.user)[0]
@@ -180,6 +183,7 @@ def question04(request):
     return render(request, 'tfgcore/question04.html')
 
 
+@login_required
 def question05(request):
     if request.method == "POST":
         msgs = []
@@ -209,6 +213,7 @@ def question05(request):
     return render(request, 'tfgcore/question05.html')
 
 
+@login_required
 def question06(request):
     if request.method == "POST":
         answers = Answers.objects.filter(user=request.user)[0]
@@ -228,8 +233,12 @@ def question06(request):
     return render(request, 'tfgcore/question06.html')
 
 
+@login_required
 def question07(request):
     if request.method == "POST":
+        answers = Answers.objects.filter(user=request.user)[0]
+        answers.answer06 = int(request.POST.get('answer06'))
+        answers.save()
         return redirect(reverse('tfgcore:question08'))
     return render(request, 'tfgcore/question07.html')
 

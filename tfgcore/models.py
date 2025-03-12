@@ -128,23 +128,25 @@ class Answers(models.Model):
     answer05other = models.CharField("Otros tratamientos", blank=True, null=True, max_length=100)
 
     # ¿Qué importancia cree que tienen los ejercicios que el fisioterapeuta le pauta para hacerlos en casa?
-    answer05 = models.IntegerField("Importancia ejercicio pautado", blank=True, null=True)
+    answer06 = models.IntegerField("Importancia ejercicio pautado", blank=True, null=True)
 
     # ¿Cree que el terapeuta debe dedicarle tiempo a darle información y explicaciones a su paciente?
     # ¿Cuánte tiempo le parecería adecuado?
-    answer06 = models.IntegerField("Tiempo de educación", choices=CHOICES_ANSWER6, blank=True, null=True)
+    answer07 = models.IntegerField("Tiempo de educación", choices=CHOICES_ANSWER6, blank=True, null=True)
 
     # Qué importancia tienen para tí las siguientes características del fisioterapeuta
-    answer05 = models.IntegerField("Sí es hombre o mujer", blank=True, null=True)
-    #sexo, edad, nacionalidad
+    answer08a = models.IntegerField("Sí es hombre o mujer", blank=True, null=True)
+    answer08b = models.IntegerField("Sí es del mismo género que yo", blank=True, null=True)
+    answer08c = models.IntegerField("La edad", blank=True, null=True)
+    answer08d = models.IntegerField("la nacionalidad", blank=True, null=True)
 
     # ¿Qué opina de las siguientes afirmaciones?
-    answer08a = models.IntegerField("Una sesión de fisioterapia sin un masaje no está completo.", choices=CHOICES_LIKERT, blank=True, null=True)
-    answer08b = models.IntegerField("Es inevitable que una sesión de fisioterapia sea algo dolorosa", choices=CHOICES_LIKERT, blank=True, null=True)
-    answer08c = models.IntegerField("Cuanto más duele, mejor funciona", choices=CHOICES_LIKERT, blank=True, null=True)
-    answer08d = models.IntegerField("Confío más en el fisioterapeuta que en el médico", choices=CHOICES_LIKERT, blank=True, null=True)
-    answer08e = models.IntegerField("En la consulta de un fisioterapeuta tiene que haber un ecógrafo", choices=CHOICES_LIKERT, blank=True, null=True)
-    answer08f = models.IntegerField("Un buen fisio también aplica terapias tradicionales aunque no tengan evidencia científica", choices=CHOICES_LIKERT, blank=True, null=True)
+    answer09a = models.IntegerField("Una sesión de fisioterapia sin un masaje no está completo.", choices=CHOICES_LIKERT, blank=True, null=True)
+    answer09b = models.IntegerField("Es inevitable que una sesión de fisioterapia sea algo dolorosa", choices=CHOICES_LIKERT, blank=True, null=True)
+    answer09c = models.IntegerField("Cuanto más duele, mejor funciona", choices=CHOICES_LIKERT, blank=True, null=True)
+    answer09d = models.IntegerField("Confío más en el fisioterapeuta que en el médico", choices=CHOICES_LIKERT, blank=True, null=True)
+    answer09e = models.IntegerField("En la consulta de un fisioterapeuta tiene que haber un ecógrafo", choices=CHOICES_LIKERT, blank=True, null=True)
+    answer09f = models.IntegerField("Un buen fisio también aplica terapias tradicionales y alternativas aunque no tengan evidencia científica", choices=CHOICES_LIKERT, blank=True, null=True)
 
 
 
