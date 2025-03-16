@@ -77,6 +77,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = "/"
+
 LANGUAGE_CODE = 'es-ES'
 
 TIME_ZONE = 'UTC'
