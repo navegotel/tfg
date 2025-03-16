@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.utils.datastructures import MultiValueDictKeyError
 from django.urls import reverse
 from .models import Participant, Answers
@@ -31,11 +31,19 @@ def personaldata(request):
         except KeyError:
             msgs.append("Tienes que especificar un correo electrónico.")
         if int(p["agerange"]) == 0:
-            print("works")
             msgs.append("Tienes que especificar un rango de edad.")
         if p["gender"] == "":
             msgs.append("Tienes que especificar tu género.")
         return msgs
+    
+    def populate(p):
+        formdata = {
+            "agerange": p.get('agerange'),
+            "gender": p.get('gender'),
+            "email": p.get('email')
+        }
+        print(p.get('gender'))
+        return formdata
 
     if request.method == "POST":
         msgs = validate(request.POST)
@@ -45,7 +53,8 @@ def personaldata(request):
         if User.objects.filter(username = username).exists():
             msgs.append('parece que ya has participado en la encuesta. Solo se puede participar una vez.')
         if len(msgs)>0:
-            return render(request, 'tfgcore/personaldata.html', {"msgs":msgs})
+            formdata = populate(request.POST)
+            return render(request, 'tfgcore/personaldata.html', {"msgs":msgs, "formdata": formdata})
         email = "{0}@markusbarth.net".format(username)
         password = "unsecureP@sswrd"
         User.objects.create_user(username, email, password)
@@ -126,6 +135,7 @@ def question02(request):
         if len(request.POST['othertreatment'])>0:
             answers.answer01h = request.POST['othertreatment']
         answers.save()
+
         return redirect(reverse('tfgcore:question03'))
     return render(request, 'tfgcore/question02.html')
 
@@ -245,19 +255,35 @@ def question07(request):
 
 def question08(request):
     if request.method == "POST":
+        msgs = []
+        try:
+            answer07 = request.POST["answer07"]
+        except MultiValueDictKeyError:
+            msgs.append("Por favor, marca una de las respuestas.")
+            return render(request, 'tfgcore/question08.html', {"msgs": msgs})
+        answers = Answers.objects.filter(user=request.user)[0]
+        answers.answer07 = int(answer07)
+        answers.save()
         return redirect(reverse('tfgcore:question09'))
     return render(request, 'tfgcore/question08.html')
 
 
 def question09(request):
     if request.method == "POST":
-        return redirect(reverse('tfgcore:bye.html'))
+        answers = Answers.objects.filter(user=request.user)[0]
+        answers.answer08a = request.POST["answer08a"]
+        answers.answer08b = request.POST["answer08b"]
+        answers.answer08c = request.POST["answer08c"]
+        answers.answer08d = request.POST["answer08d"]
+        answers.answer08e = request.POST["answer08e"]
+        answers.answer08f = request.POST["answer08f"]
+        answers.save()
+        logout(request)
+        return redirect(reverse('tfgcore:bye'))
     return render(request, 'tfgcore/question09.html')
 
 
 def bye(request):
-    if request.method == "POST":
-        return redirect(reverse('tfgcore:bye'))
     return render(request, 'tfgcore/bye.html')
 
 def legalstuff(request):

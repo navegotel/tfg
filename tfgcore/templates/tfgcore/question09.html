@@ -8,11 +8,126 @@
 
 {% block body %}
 <section class="section">
-    <h2>¿Qué terapias o tratamientos ha aplicado el fisioterapeuta?</h2>
+    <h2>¿Qué opinas de las siguientes afirmaciones?</h2>
     <form method="post" id="questionnaire">
+        {% csrf_token %}
         <div class="control my-4">
-            
+            <label class="label">Una sesión de fisioterapia sin un masaje no está completo.</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider1Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Nada de acuerdo</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider1" name="answer08a" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider1More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Totalmente de acuerdo</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Es inevitable que una sesión de fisioterapia sea algo dolorosa</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider2Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Nada de acuerdo</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider2" name="answer08b" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider2More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Totalmente de acuerdo</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Cuanto más duele, mejor funciona</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider3Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Nada de acuerdo</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider3" name="answer08c" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider3More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Totalmente de acuerdo</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Confío más en el fisioterapeuta que en el médico</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider4Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Nada de acuerdo</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider4" name="answer08d" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider4More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Totalmente de acuerdo</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">En la consulta de un fisioterapeuta tiene que haber un ecógrafo</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider5Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Nada de acuerdo</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider5" name="answer08e" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider5More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Totalmente de acuerdo</span>
+                </div>
+            </div>
+        </div>
+        <div class="control my-4">
+            <label class="label">Un buen fisio también aplica terapias tradicionales y alternativas aunque no tengan evidencia científica</label>
+            <div class="columns">
+                <div class="column">
+                    <span id="Slider6Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Nada de acuerdo</span>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider6" name="answer08f" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+                </div>
+                <div class="column">
+                    <span id="Slider6More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Totalmente de acuerdo</span>
+                </div>
+            </div>
         </div>
     </form>
+    <div class="level my-5">
+        <div class="level-left">
+            <button class="button is-info" onclick="showModal()">¡Vamos a terminar ya!</button>
+        </div>
+    </div>
 </section>
+{% endblock %}
+
+{% block modalcontent %}
+    <div class="content">
+        <p>
+            Las pistolas de masaje son muy útiles para normalizar
+            el tono muscular, alivian el dolor agudo moderado y
+            pueden reducir algunos de los síntomas de sobrecarga
+            post-ejercicio.
+        </p>
+        <p>
+            No obstante, no hay evidencia de que aceleren la recuperación
+            después del ejercicio.
+        </p>
+    <button class="button" form="questionnaire">Cerrar y seguir</button>
+    </div>
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script>
+    function rangeChangeHandler(event){
+        lessTag = document.getElementById(event.target.id + "Less");
+        lessTag.style.opacity = 1 - event.target.value / 100
+        moreTag = document.getElementById(event.target.id + "More");
+        moreTag.style.opacity = event.target.value / 100
+    }
+</script>
 {% endblock %}

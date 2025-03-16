@@ -55,13 +55,13 @@
                             <p class="control is-expanded">
                                 <div class="select is-primary">
                                     <select  name="agerange">
-                                        <option value="0">Selecciona una opción</option>
-                                        <option value="1">18-24 años</option>
-                                        <option value="2">25-34 años</option>
-                                        <option value="3">35-44 años</option>
-                                        <option value="4">45-54 años</option>
-                                        <option value="5">55-64 años</option>
-                                        <option value="6">65 o más años</option>
+                                        <option value="0" {% if formdata.agerange == "0" %}selected{% endif %}>Selecciona una opción</option>
+                                        <option value="1" {% if formdata.agerange == "1" %}selected{% endif %}>18-24 años</option>
+                                        <option value="2" {% if formdata.agerange == "2" %}selected{% endif %}>25-34 años</option>
+                                        <option value="3" {% if formdata.agerange == "3" %}selected{% endif %}>35-44 años</option>
+                                        <option value="4" {% if formdata.agerange == "4" %}selected{% endif %}>45-54 años</option>
+                                        <option value="5" {% if formdata.agerange == "5" %}selected{% endif %}>55-64 años</option>
+                                        <option value="6" {% if formdata.agerange == "6" %}selected{% endif %}>65 o más años</option>
                                     </select>
                                 </div>
                             </p>
@@ -78,13 +78,13 @@
                                 <div class="select is-primary">
                                     <select  name="gender">
                                         <option value="">Selecciona una opción</option>
-                                        <option value="MALE">Hombre</option>
-                                        <option value="FEMALE">Mujer</option>
-                                        <option value="TRANSGENDER">Transgénero</option>
-                                        <option value="AGENDER">Asexual</option>
-                                        <option value="GENDERFLUID">Género fluido</option>
-                                        <option value="NONBINARY">No binary</option>
-                                        <option value="GENDERQUEER">Queer</option>
+                                        <option value="MALE" {% if formdata.gender == "MALE" %}selected{% endif %}>Hombre</option>
+                                        <option value="FEMALE" {% if formdata.gender == "FEMALE" %}selected{% endif %}>Mujer</option>
+                                        <option value="TRANSGENDER" {% if formdata.gender == "TRANSGENDER" %}selected{% endif %}>Transgénero</option>
+                                        <option value="AGENDER" {% if formdata.gender == "AGENDER" %}selected{% endif %}>Asexual</option>
+                                        <option value="GENDERFLUID" {% if formdata.gender == "GENDERFLUID" %}selected{% endif %}>Género fluido</option>
+                                        <option value="NONBINARY" {% if formdata.gender == "NONBINARY" %}selected{% endif %}>No binary</option>
+                                        <option value="GENDERQUEER" {% if formdata.gender == "GENDERQUEER" %}selected{% endif %}>Queer</option>
                                         <option value="NA">No quiero especificar</option>
                                     </select>
                                 </div>
@@ -116,7 +116,7 @@
                     <div class="field-body">
                         <div class="field">
                             <p class="control is-expanded has-icons-left">
-                                <input class="input" type="text" placeholder="Correo electrónico" name="email">
+                                <input class="input" type="text" placeholder="Correo electrónico" name="email" value="{{formdata.email}}">
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-envelope"></i>
                                 </span>

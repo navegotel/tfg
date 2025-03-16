@@ -7,6 +7,22 @@
 {% endblock %}
 
 {% block body %}
+{% if msgs %}
+        <div class="message is-danger">
+            <div class="message-header">
+                <p>Echa un vistazo</p>
+            </div>
+            <div class="message-body">
+                <div class="content">
+                    {% for msg in msgs %}
+                        <p>
+                            {{msg}}
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
 <section class="section">
     <h2>
         ¿Cree que el terapeuta debe dedicarle tiempo a darle información y explicaciones a su paciente?
@@ -16,23 +32,23 @@
         {% csrf_token %}
         <div class="control my-4">
             <div class="field">
-                <input class="is-checkradio" id="1" value="1" type="radio" name="treatmenttype">
+                <input class="is-checkradio" id="1" value="1" type="radio" name="answer07">
                 <label class="label" for="1">Entre 5 y 10 minutos</label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="2" value="2" type="radio" name="treatmenttype">
+                <input class="is-checkradio" id="2" value="2" type="radio" name="answer07">
                 <label class="label" for="2">Entre 10 15 minutos</label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="3" value="3" type="radio" name="treatmenttype">
+                <input class="is-checkradio" id="3" value="3" type="radio" name="answer07">
                 <label class="label" for="3">Entre 15 minutos y media hora</label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="4" value="4" type="radio" name="treatmenttype">
+                <input class="is-checkradio" id="4" value="4" type="radio" name="answer07">
                 <label class="label" for="4">Más de media hora</label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="5" value="5" type="radio" name="treatmenttype">
+                <input class="is-checkradio" id="5" value="5" type="radio" name="answer07">
                 <label class="label" for="5">El tiempo que sea necesario para que el cliente lo tenga claro, aunque sea más de una hora</label>
             </div>
         </div>
@@ -43,4 +59,16 @@
         </div>
     </div>
 </section>
+{% endblock %}
+{% block modalcontent %}
+    <div class="content">
+        <p>
+            En el deporte la respiración representa hasta un 15% del
+            consumo de energía durante el ejercicio. Con una buena
+            técnica de respiración se puede aumentar de forma 
+            considerable la difusión, es decir la cantidad de oxígeno
+            que pasa a la sangre.
+        </p>
+    <button class="button" form="questionnaire">Cerrar y seguir</button>
+    </div>
 {% endblock %}
