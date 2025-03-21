@@ -23,6 +23,16 @@ class Participant(models.Model):
         (6, '65 y más')
     ]
 
+    EDUCATION=[
+        (0, 'No quiero específicar'),
+        (1, 'Educación secundaria obligatoria (EGB/ESO)'),
+        (2, 'Bachillerato'),
+        (3, 'FP grado medio'),
+        (4, 'FP grado superior'),
+        (5, 'Estudios universitarios'),
+        (6, 'Estudios de postgrado')
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, help_text="Usuario con login")
     creation_date = models.DateTimeField("Creado", help_text="Fecha de creación del registro.", auto_now_add=True)
     age_range = models.IntegerField("Rango de edad", choices=AGE_RANGE_CHOICES, blank=True, null=True)
@@ -31,6 +41,7 @@ class Participant(models.Model):
     smoking = models.BooleanField("Fumador", default=False)
     sports = models.BooleanField("Deporte", blank=True, null=True)
     chronic_disease = models.BooleanField("Enf. crónica", default=False)   
+    education = models.IntegerField("Nivel de estudios", choices=EDUCATION, blank=True, null=True)
 
 
 class Answers(models.Model):

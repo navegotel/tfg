@@ -40,9 +40,9 @@ def personaldata(request):
         formdata = {
             "agerange": p.get('agerange'),
             "gender": p.get('gender'),
-            "email": p.get('email')
+            "email": p.get('email'),
+            "education": p.get('education')
         }
-        print(p.get('gender'))
         return formdata
 
     if request.method == "POST":

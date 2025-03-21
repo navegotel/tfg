@@ -85,7 +85,30 @@
                                         <option value="GENDERFLUID" {% if formdata.gender == "GENDERFLUID" %}selected{% endif %}>Género fluido</option>
                                         <option value="NONBINARY" {% if formdata.gender == "NONBINARY" %}selected{% endif %}>No binary</option>
                                         <option value="GENDERQUEER" {% if formdata.gender == "GENDERQUEER" %}selected{% endif %}>Queer</option>
-                                        <option value="NA">No quiero especificar</option>
+                                        <option value="NA" {% if formdata.gender == "NA" %}selected{% endif %}>No quiero especificar</option>
+                                    </select>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Estudios</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control is-expanded">
+                                <div class="select is-primary">
+                                    <select  name="education">
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="1" {% if formdata.gender == "1" %}selected{% endif %}>Educación secundaria obligatoria (EGB/ESO)</option>
+                                        <option value="2" {% if formdata.gender == "2" %}selected{% endif %}>Bachillerato</option>
+                                        <option value="3" {% if formdata.gender == "3" %}selected{% endif %}>FP grado medio</option>
+                                        <option value="4" {% if formdata.gender == "4" %}selected{% endif %}>FP grado superior</option>
+                                        <option value="5" {% if formdata.gender == "5" %}selected{% endif %}>Estudios universitarios</option>
+                                        <option value="6" {% if formdata.gender == "6" %}selected{% endif %}>Estudios de posgrado</option>
+                                        <option value="0" {% if formdata.gender == "0" %}selected{% endif %}>No quiero especificar</option>
                                     </select>
                                 </div>
                             </p>
