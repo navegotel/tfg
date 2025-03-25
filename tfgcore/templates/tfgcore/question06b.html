@@ -13,148 +13,251 @@
         Para cada opción puedes deslizar el botón hacia la izquierda y hacia la derecha.
         Cuanto más esté a la izquierda, menos confianza y cuanto más a la derecha, más confianza tienes.
     </p>
+    
     <form method="post" id="questionnaire">
         {% csrf_token %}
+        {% if 'answer05a' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Electroterapia</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider1Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider1Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider1" name="answer05a" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider1More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider1More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05b' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Punción seca (terapia con agujas)</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider2Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider2Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider2" name="answer05b" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider2More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider2More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05c' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Ejercicio terapéutico</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider3Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider3Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider3" name="answer05c" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider3More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider3More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05d' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Tratamiento con Láser</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider4Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider4Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider4" name="answer05d" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider4More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider4More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05e' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Biorresonancia</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider5Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider5Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider5" name="answer05e" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider5More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider5More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05f' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Aplicación de frío o calor</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider6Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider6Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider6" name="answer05f" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider6More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider6More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05g' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Terapia manual y masaje</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider7Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider7Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider7" name="answer05g" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider7More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider7More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05h' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Aromaterapia</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider8Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider8Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider8" name="answer05h" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider8More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider8More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05i' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Magnetoterapia</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider9Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider9Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider9" name="answer05i" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider9More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider9More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05j' in knowntreatments %}
         <div class="control my-4">
             <label class="label">Biodescodificación</label>
             <div class="columns">
                 <div class="column">
-                    <span id="Slider10Less" class="tag is-danger" style="min-width: 100px; opacity: 0.5;">Ninguna</span>
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider10Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
                 </div>
                 <div class="column is-8">
                     <input id="Slider10" name="answer05j" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
                 </div>
                 <div class="column">
-                    <span id="Slider10More" class="tag is-success" style="min-width: 100px; opacity: 0.5;">Muchísima</span>
+                    <div class="tags has-addons">
+                        <span id="Slider10More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endif %}
+        {% if 'answer05k' in knowntreatments %}
+        <div class="control my-4">
+            <label class="label">Ondas de choque</label>
+            <div class="columns">
+                <div class="column">
+                    <div class="tags has-addons">
+                        <span class="tag is-dark is-medium">Ninguna</span>
+                        <span id="Slider11Less" class="tag is-danger is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                    </div>
+                </div>
+                <div class="column is-8">
+                    <input id="Slider11" name="answer05k" oninput="rangeChangeHandler(event)" class="slider is-fullwidth is-info" step="1" min="0" max="100" value="50" type="range">
+                </div>
+                <div class="column">
+                    <div class="tags has-addons">
+                        <span id="Slider11More" class="tag is-success is-medium" style="min-width: 100px; opacity: 0.5;"></span>
+                        <span class="tag is-dark is-medium">Muchísima</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         <div class="control my-4">
             <div class="field">
                 <label class="label">Otras terapias</label>

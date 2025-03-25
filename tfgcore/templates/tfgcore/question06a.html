@@ -1,0 +1,91 @@
+{% extends "baseform.html" %}
+{% load static %}
+{% block progress %}
+<figure class="image px-5">
+    <img src="{% static 'tfgcore/img/progress_question06.svg' %}">
+</figure>
+{% endblock %}
+
+{% block body %}
+<section class="section">
+    <h2 class="is-size-5">¿Cuál de las siguientes terapias conoces?</h2>
+    (puedes marcar varias)
+    <form method="post" id="questionnaire">
+        {% csrf_token %}
+        <input type="hidden" name="knowntreatments" value="1">
+        <div class="control my-4">
+            <div class="field">
+                <label class="label" for="1">
+                    <input class="checkbox" id="1" value="answer05a" type="checkbox" name="treatment">
+                    Electroterapia
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="2">
+                    <input class="checkbox" id="2" value="answer05b" type="checkbox" name="treatment">
+                    Punción seca (terapia con agujas)
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="3">
+                    <input class="checkbox" id="3" value="answer05c" type="checkbox" name="treatment">
+                    Ejercicio terapéutico
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="4">
+                    <input class="checkbox" id="4" value="answer05d" type="checkbox" name="treatment">
+                    Tratamiento con Láser
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="5">
+                    <input class="checkbox" id="5" value="answer05e" type="checkbox" name="treatment">
+                    Biorresonancia
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="6">
+                    <input class="checkbox" id="6" value="answer05f" type="checkbox" name="treatment">
+                    Aplicación de frío o calor
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="7">
+                    <input class="checkbox" id="7" value="answer05g" type="checkbox" name="treatment">
+                    Terapia manual y masaje
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="8">
+                    <input class="checkbox" id="8" value="answer05h" type="checkbox" name="treatment">
+                    Aromaterapia
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="9">
+                    <input class="checkbox" id="9" value="answer05i" type="checkbox" name="treatment">
+                    Magnetoterapia
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="10">
+                    <input class="checkbox" id="10" value="answer05j" type="checkbox" name="treatment">
+                    Biodescodificación
+                </label>
+            </div>
+            <div class="field">
+                <label class="label" for="11">
+                    <input class="checkbox" id="11" value="answer05k" type="checkbox" name="treatment">
+                    Ondas de choque
+                </label>
+            </div>
+        </div>
+        <div class="level my-5">
+            <div class="level-left">
+                <button class="button is-info">Seguimos!</button>
+            </div>
+        </div>
+    </form>
+</section>
+{% endblock %}

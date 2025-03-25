@@ -30,7 +30,7 @@ class Participant(models.Model):
         (3, 'FP grado medio'),
         (4, 'FP grado superior'),
         (5, 'Estudios universitarios'),
-        (6, 'Estudios de postgrado')
+        (6, 'Estudios de posgrado')
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, help_text="Usuario con login")
@@ -136,6 +136,7 @@ class Answers(models.Model):
     answer05h = models.IntegerField("Aromaterapia", blank=True, null=True)
     answer05i = models.IntegerField("Magnetoterapia", blank=True, null=True)
     answer05j = models.IntegerField("Biodescodificación", blank=True, null=True)
+    answer05k = models.IntegerField("Ondas de choque", blank=True, null=True)
     answer05other = models.CharField("Otros tratamientos", blank=True, null=True, max_length=100)
 
     # ¿Qué importancia cree que tienen los ejercicios que el fisioterapeuta le pauta para hacerlos en casa?

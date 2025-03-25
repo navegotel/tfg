@@ -25,41 +25,58 @@
         </div>
     {% endif %}
     <h2 class="is-size-5">¿Cuáles de las siguientes crees que son profesiones sanitarias reconocidas en España?</h2>
+    (Puedes marcar varias)
     <form method="post" id="questionnaire">
         <div class="control my-4">
                 {% csrf_token %}
                 <div class="control my-4">
                     <div class="field">
-                        <input class="is-checkradio" id="1" value="1" type="checkbox" name="healthprofession">
-                        <label class="label" for="1">Osteópata</label>
+                        <label class="label" for="1">
+                            <input class="checkbox" id="1" value="1" type="checkbox" name="healthprofession">
+                            Osteópata
+                        </label>
                     </div>
                     <div class="field">
-                        <input class="is-checkradio" id="2" value="2" type="checkbox" name="healthprofession">
-                        <label class="label" for="2">Masajista</label>
+                        <label class="label" for="2">
+                            <input class="checkbox" id="2" value="2" type="checkbox" name="healthprofession">
+                            Masajista
+                        </label>
                     </div>
                     <div class="field">
-                        <input class="is-checkradio" id="3" value="3" type="checkbox" name="healthprofession">
-                        <label class="label" for="3">Fisioterapeuta</label>
+                        <label class="label" for="3">
+                            <input class="checkbox" id="3" value="3" type="checkbox" name="healthprofession">
+                            Fisioterapeuta
+                        </label>
                     </div>
                     <div class="field">
-                        <input class="is-checkradio" id="4" value="4" type="checkbox" name="healthprofession">
-                        <label class="label" for="4">Podólogo/Podóloga</label>
+                        <label class="label" for="4">
+                            <input class="checkbox" id="4" value="4" type="checkbox" name="healthprofession">
+                            Podólogo/Podóloga
+                        </label>
                     </div>
                     <div class="field">
-                        <input class="is-checkradio" id="5" value="5" type="checkbox" name="healthprofession">
-                        <label class="label" for="5">Naturópata</label>
+                        <label class="label" for="5">
+                            <input class="checkbox" id="5" value="5" type="checkbox" name="healthprofession">
+                            Naturópata
+                        </label>
                     </div>
                     <div class="field">
-                        <input class="is-checkradio" id="6" value="6" type="checkbox" name="healthprofession">
-                        <label class="label" for="6">Quiropráctico/Quiropráctica</label>
+                        <label class="label" for="6">
+                            <input class="checkbox" id="6" value="6" type="checkbox" name="healthprofession">
+                            Quiropráctico/Quiropráctica
+                        </label>
                     </div>
                     <div class="field">
-                        <input class="is-checkradio" id="7" value="7" type="checkbox" name="healthprofession">
-                        <label class="label" for="7">Enfermero/Enfermera</label>
+                        <label class="label" for="7">
+                            <input class="checkbox" id="7" value="7" type="checkbox" name="healthprofession">
+                            Enfermero/Enfermera
+                        </label>
                     </div>
                     <div class="field">
-                        <input class="is-checkradio" id="8" value="8" type="checkbox" name="healthprofession">
-                        <label class="label" for="8">Farmacéutico/Farmacéutica</label>
+                        <label class="label" for="8">
+                            <input class="checkbox" id="8" value="8" type="checkbox" name="healthprofession">
+                            Farmacéutico/Farmacéutica
+                        </label>
                     </div>
                 </div>
             </div>

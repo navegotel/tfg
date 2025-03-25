@@ -25,60 +25,87 @@
         </div>
     {% endif %}
     <h2 class="is-size-5">¿Con cuál de los siguientes problemas de salud acudirías a un fisioterapeuta?</h2>
+    (Puedes marcar varios)
     <form method="post" id="questionnaire">
         {% csrf_token %}
         <div class="control my-4">
             <div class="field">
-                <input class="is-checkradio" id="1" value="1" type="checkbox" name="relatedtreatments">
-                <label class="label" for="1">Problemas respiratorios</label>
+                <label class="label" for="1">
+                    <input class="checkbox" id="1" value="1" type="checkbox" name="relatedtreatments">
+                    Problemas respiratorios
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="2" value="2" type="checkbox" name="relatedtreatments">
-                <label class="label" for="2">Dolor de espalda</label>
+                <label class="label" for="2">
+                    <input class="checkbox" id="2" value="2" type="checkbox" name="relatedtreatments">
+                    Dolor de espalda
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="3" value="3" type="checkbox" name="relatedtreatments">
-                <label class="label" for="3">Dolor de hombro</label>
+                <label class="label" for="3">
+                    <input class="checkbox" id="3" value="3" type="checkbox" name="relatedtreatments">
+                    Dolor de hombro
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="4" value="4" type="checkbox" name="relatedtreatments">
-                <label class="label" for="4">Enfermedades relacionadas con el corazón</label>
+                <label class="label" for="4">
+                    <input class="checkbox" id="4" value="4" type="checkbox" name="relatedtreatments">
+                    Enfermedades relacionadas con el corazón
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="5" value="5" type="checkbox" name="relatedtreatments">
-                <label class="label" for="5">Dolor en las articulaciones</label>
+                <label class="label" for="5">
+                    <input class="checkbox" id="5" value="5" type="checkbox" name="relatedtreatments">
+                    Dolor en las articulaciones
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="6" value="6" type="checkbox" name="relatedtreatments">
-                <label class="label" for="6">Diabetes</label>
+                <label class="label" for="6">
+                    <input class="checkbox" id="6" value="6" type="checkbox" name="relatedtreatments">
+                    Diabetes
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="7" value="7" type="checkbox" name="relatedtreatments">
-                <label class="label" for="7">Parkinson</label>
+                <label class="label" for="7">
+                    <input class="checkbox" id="7" value="7" type="checkbox" name="relatedtreatments">
+                    Parkinson
+                </label>
+            </div>
+            <div class="field">                
+                <label class="label" for="8">
+                    <input class="checkbox" id="8" value="8" type="checkbox" name="relatedtreatments">
+                    Problemas de visión o auditivos
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="8" value="8" type="checkbox" name="relatedtreatments">
-                <label class="label" for="8">Problemas de visión o auditivos</label>
+                <label class="label" for="9">
+                    <input class="checkbox" id="9" value="9" type="checkbox" name="relatedtreatments">
+                    Dolor de cabeza
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="9" value="9" type="checkbox" name="relatedtreatments">
-                <label class="label" for="9">Dolor de cabeza</label>
+                <label class="label" for="10">
+                    <input class="checkbox" id="10" value="10" type="checkbox" name="relatedtreatments">
+                    Preparación al parto
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="10" value="10" type="checkbox" name="relatedtreatments">
-                <label class="label" for="10">Preparación al parto</label>
+                <label class="label" for="11">
+                    <input class="checkbox" id="11" value="11" type="checkbox" name="relatedtreatments">
+                    Estreñimiento crónico
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="11" value="11" type="checkbox" name="relatedtreatments">
-                <label class="label" for="11">Estreñimiento crónico</label>
+                <label class="label" for="12">
+                    <input class="checkbox" id="12" value="12" type="checkbox" name="relatedtreatments">
+                    Lesiones deportivas
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="12" value="12" type="checkbox" name="relatedtreatments">
-                <label class="label" for="12">Lesiones deportivas</label>
-            </div>
-            <div class="field">
-                <input class="is-checkradio" id="13" value="12" type="checkbox" name="relatedtreatments">
-                <label class="label" for="12">Cáncer</label>
+                <label class="label" for="12">
+                    <input class="checkbox" id="13" value="12" type="checkbox" name="relatedtreatments">
+                    Cáncer
+                </label>
             </div>
         </div>
     </form>

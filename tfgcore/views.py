@@ -226,21 +226,30 @@ def question05(request):
 @login_required
 def question06(request):
     if request.method == "POST":
-        answers = Answers.objects.filter(user=request.user)[0]
-        answers.answer05a = int(request.POST.get('answer05a'))
-        answers.answer05b = int(request.POST.get('answer05b'))
-        answers.answer05c = int(request.POST.get('answer05c'))
-        answers.answer05d = int(request.POST.get('answer05d'))
-        answers.answer05e = int(request.POST.get('answer05e'))
-        answers.answer05f = int(request.POST.get('answer05f'))
-        answers.answer05g = int(request.POST.get('answer05g'))
-        answers.answer05h = int(request.POST.get('answer05h'))
-        answers.answer05i = int(request.POST.get('answer05i'))
-        answers.answer05j = int(request.POST.get('answer05j'))
-        answers.answer05other = request.POST.get('others')
-        answers.save()
-        return redirect(reverse('tfgcore:question07'))
-    return render(request, 'tfgcore/question06.html')
+        if 'knowntreatments' in request.POST:
+            knowntreatments = request.POST.getlist('treatment')
+            if len(knowntreatments) == 0:
+                # user doesn't know any treatments so he cannot review any treatments -> we send him to the next view in the questionnaire.
+                return redirect(reverse('tfgcore:question07'))
+            else:
+                print(knowntreatments)
+                return render(request, 'tfgcore/question06b.html', {'knowntreatments': knowntreatments})
+        else:
+            answers = Answers.objects.filter(user=request.user)[0]
+            answers.answer05a = int(request.POST.get('answer05a'))
+            answers.answer05b = int(request.POST.get('answer05b'))
+            answers.answer05c = int(request.POST.get('answer05c'))
+            answers.answer05d = int(request.POST.get('answer05d'))
+            answers.answer05e = int(request.POST.get('answer05e'))
+            answers.answer05f = int(request.POST.get('answer05f'))
+            answers.answer05g = int(request.POST.get('answer05g'))
+            answers.answer05h = int(request.POST.get('answer05h'))
+            answers.answer05i = int(request.POST.get('answer05i'))
+            answers.answer05j = int(request.POST.get('answer05j'))
+            answers.answer05other = request.POST.get('others')
+            answers.save()
+            return redirect(reverse('tfgcore:question07'))
+    return render(request, 'tfgcore/question06a.html')
 
 
 @login_required

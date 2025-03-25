@@ -29,20 +29,28 @@
         {% csrf_token %}
         <div class="control my-4">
             <div class="field">
-                <input class="is-checkradio" id="1" value="1" type="radio" name="intreatment">
-                <label for="1">No</label>
+                <label class="radio label" for="1">
+                    <input id="1" value="1" type="radio" name="intreatment">
+                    No
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="2" value="2" type="radio" name="intreatment">
-                <label for="2">Sí, hace menos de un años.</label>
+                <label class="radio label" for="2">
+                    <input id="2" value="2" type="radio" name="intreatment">
+                    Sí, hace menos de un año.
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="3" value="3" type="radio" name="intreatment">
-                <label for="3">Sí, hace más de un año pero menos de tres años.</label>
+                <label class="label radio" for="3">
+                    <input id="3" value="3" type="radio" name="intreatment">
+                    Sí, hace más de un año pero menos de tres años.
+                </label>
             </div>
             <div class="field">
-                <input class="is-checkradio" id="4" value="4" type="radio" name="intreatment">
-                <label for="4">Sí, hace más de tres años.</label>
+                <label class="label radio" for="4">
+                    <input id="4" value="4" type="radio" name="intreatment">
+                    Sí, hace más de tres años.
+                </label>
             </div>
         </div>
     </form>
