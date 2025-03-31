@@ -132,8 +132,10 @@ def question02(request):
             answers.answer01f = True
         if '7' in treatmenttype:
             answers.answer01g = True
+        if '8' in treatmenttype:
+            answers.answer01h = True
         if len(request.POST['othertreatment'])>0:
-            answers.answer01h = request.POST['othertreatment']
+            answers.answer01i = request.POST['othertreatment']
         answers.save()
 
         return redirect(reverse('tfgcore:question03'))

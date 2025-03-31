@@ -86,7 +86,8 @@ class Answers(models.Model):
     answer01e = models.BooleanField("Ejercicio terapéutico", default=False)
     answer01f = models.BooleanField("Ultrasonido", default=False)
     answer01g = models.BooleanField("Magnetoterapia", default=False)
-    answer01h = models.TextField("Otros tratamientos", blank=True, null=True)
+    answer01h = models.BooleanField("Ondas de choque", default=False)
+    answer01i = models.TextField("Otros tratamientos", blank=True, null=True)
     
     # ¿Con cuál de los siguientes problemas de salud acudiría a un fisioterapeuta?
     answer02a = models.IntegerField("Problemas respiratorios", blank=True, null=True)
